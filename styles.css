@@ -1,0 +1,103 @@
+/* Reset & Base Styles */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: #f0f4f8; color: #333; line-height: 1.6; 
+    background-image: url('https://imgs.search.brave.com/ooxtua_MpntyrF7iZh6o-53kl44nLEC3q4maxBVbsvg/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly90My5m/dGNkbi5uZXQvanBn/LzEyLzIxLzE3LzIw/LzM2MF9GXzEyMjEx/NzIwMDdfTnZseXZn/YzM3MHRTUmo2bUNP/YVd4eTZncWhTMTlZ/SVcuanBn');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+header {
+  position: sticky; top: 0; z-index: 999; background: #fff; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  display: flex; justify-content: space-between; align-items: center; padding: 15px 20px;
+  transition: background 0.3s, box-shadow 0.3s;
+}
+header.scrolled { background: #fff; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
+header h1 { font-size: 1.8rem; color: #ff6f61; letter-spacing: 1px; }
+nav {
+  display: flex; gap: 20px;
+}
+nav a {
+  text-decoration: none; color: #555; font-weight: 600; font-size: 1rem; padding: 8px 12px; border-radius: 4px;
+  transition: background 0.3s, color 0.3s;
+}
+nav a:hover { background: #ff6f61; color: #fff; }
+
+section {
+  padding: 60px 20px; max-width: 1200px; margin: auto; opacity: 0; transform: translateY(20px);
+  transition: all 0.7s ease-out;
+}
+section.visible { opacity: 1; transform: translateY(0); }
+
+.hero {
+  background: linear-gradient(135deg, #ffe0dc, #f9d5d3);
+  text-align: center; padding: 80px 20px; border-radius: 12px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  background: linear-gradient(135deg, #ffe0dc, #f9d5d3), url('https://imgs.search.brave.com/oWdRYx-CCPWpmiayhUCI22Tk4fI8w1-IcisjwJQB_XU/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pLnBp/bmltZy5jb20vb3Jp/Z2luYWxzLzhjLzNh/L2Y4LzhjM2FmODhl/YTQwYTIyZmViMGJj/YjRlOTA4Mjc1YWI2/LmpwZw');
+  background-blend-mode: overlay; /* optional for blending */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.6; /* optional for overlay effect */
+  z-index: -1;
+}
+.hero h2 { font-size: 2.5rem; margin-bottom: 15px; color: #222; }
+.hero p { font-size: 1.2rem; color: #555; max-width: 600px; margin: 0 auto; }
+
+.recipes {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 30px;
+}
+.recipe-card {
+  background: #fff; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+.recipe-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.2);
+}
+.recipe-card img {
+  width: 100%; height: 180px; object-fit: cover; transition: transform 0.3s;
+}
+.recipe-card:hover img { transform: scale(1.02); }
+.recipe-card h3 {
+  padding: 15px; font-size: 1.2rem; margin-bottom: 10px; color: #333;
+}
+.recipe-details {
+  padding: 0 15px 15px 15px; font-size: 0.95rem; color: #555; display: none; animation: fadeIn 0.5s forwards;
+}
+button {
+  background: #ff6f61; color: #fff; border: none; padding: 8px 16px; margin-top: 10px; border-radius: 6px; cursor: pointer; font-weight: 600; transition: background 0.3s;
+}
+button:hover { background: #e65b52; }
+
+.about, .contact {
+    background: #fff; border-radius: 12px; padding: 20px 15px; box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    max-width: 800px; margin: auto; opacity: 0; transform: translateY(20px);
+}
+.about h2, .contact h2 { font-size: 2rem; margin-bottom: 20px; color: #222; }
+.about p, .contact p { font-size: 1.1rem; margin-bottom: 15px; color: #555; }
+.contact form {
+  display: flex; flex-direction: column; gap: 15px; margin-top: 20px;
+}
+.contact input, .contact textarea {
+  padding: 12px; border: 1px solid #ccc; border-radius: 8px; font-size: 1rem; transition: border-color 0.3s;
+}
+.contact input:focus, .contact textarea:focus { border-color: #ff6f61; outline: none; }
+.contact button { align-self: flex-start; }
+
+footer {
+  background: #222; color: #ddd; text-align: center; padding: 20px; margin-top: 40px; font-size: 0.9rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Responsive */
+@media(max-width: 768px){
+  header h1 { font-size: 1.5rem; }
+  nav { flex-direction: column; align-items: center; gap: 10px; }
+  .hero h2 { font-size: 2rem; }
+}
